@@ -1,3 +1,4 @@
+//https://cdn.jsdelivr.net/gh/mmkathurima/strftime/strftime.js
 function strftime(date, patternStr) {
     const twoDigitPad = x => String(x).padStart(2, 0);
     const dayOfWeekNames = [...Array(7).keys()].map(key => new Date(0, 0, key).toLocaleString('en', { weekday: "long" }));
@@ -5,6 +6,8 @@ function strftime(date, patternStr) {
 
     if (!patternStr) 
         patternStr = 'yyyy-MM-dd';
+    if (!date)
+        date = new Date();
     
     const day = date.getDate(),
         month = date.getMonth(),
